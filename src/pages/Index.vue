@@ -6,8 +6,8 @@
         <img :src="item.imageUrl" style="width: 128px; height: 128px"/>
         <div class="container--box--title">
           <q-text class="lower">{{ item.name }}</q-text>
-          <q-text>R$ {{ (item.sellingPrice/validator).toString().replace('.', ',') }}</q-text>
-          <q-text>R$ {{ (item.price/validator).toString().replace('.', ',') }}</q-text>
+          <q-text class="subprice">R$ {{ (item.sellingPrice/validator).toString().replace('.', ',') }}</q-text>
+          <q-text lass="price">R$ {{ (item.price/validator).toString().replace('.', ',') }}</q-text>
         </div>
       </div>
     </div>
@@ -21,8 +21,8 @@
           <img :src="item.imageUrl" style="width: 128px; height: 128px"/>
           <div class="container--box--title">
             <q-text class="lower">{{ item.name }}</q-text>
-            <q-text>R$ {{ (item.sellingPrice/validator).toString().replace('.', ',') }}</q-text>
-            <q-text>R$ {{ (item.price/validator).toString().replace('.', ',') }}</q-text>
+            <q-text class="subprice">R$ {{ (item.sellingPrice/validator).toString().replace('.', ',') }}</q-text>
+            <q-text class="price">R$ {{ (item.price/validator).toString().replace('.', ',') }}</q-text>
           </div>
         </div>
       </div>
@@ -134,6 +134,16 @@ export default {
 </script>
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.subprice {
+  font-size: 12px;
+  color: grey
+}
+
+.price {
+  color: black;
+  font-weight: bold;
+}
 
 .lower {
   text-transform: lowercase;
