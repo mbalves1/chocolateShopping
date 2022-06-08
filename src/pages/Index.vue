@@ -1,5 +1,6 @@
 <template>
   <q-page class="flex flex-center container">
+    <span style="font-size: 32px; padding: 20px">Shopping do Chocolate</span>
     <div class="container--products" style="padding: 0px 1px 0 1px; margin-left: 20px">
       <div v-for="(item, i) in products" :key="i" class="container--box" style="cursor:pointer" @click="addProduct(i, item)">
         <img :src="item.imageUrl" style="width: 128px; height: 128px"/>
@@ -35,7 +36,7 @@
       </div>
       <q-separator></q-separator>
       <span class="content">
-        <q-btn class="content--button" flat style="font-weight: 700">Finalizar compra</q-btn>
+        <q-btn class="content--button" flat style="font-weight: 700" @click="concluded = true">Finalizar compra</q-btn>
       </span>
     </q-card>
     <q-dialog v-model="modal" persistent>
@@ -43,6 +44,16 @@
         <q-card-section class="row items-center">
           <span class="q-ml-sm">Teste desenvolvido para oportunidade de Front end no Codeby</span>
           <span class="q-ml-sm">Na tela principal encontramos os produtos dispostos na parte de cima, ao clicar em cada produto adicionamos na cesta de compras. Todos elementos inseridos na cesta de compras são contabilizados e somados os valores finais. Caso queira remover algum item, é só clicar no mesmo.</span>
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat @click="modal = false" label="Fechar" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog><q-dialog v-model="concluded" persistent>
+      <q-card>
+        <q-card-section class="row items-center">
+          <span class="q-ml-sm">Obrigado pela oportunidade de participar do processo seletivo!</span>
         </q-card-section>
 
         <q-card-actions align="right">
@@ -62,7 +73,8 @@ export default {
       products: [],
       basket: [],
       modal: false,
-      validator: 100
+      validator: 100,
+      concluded: false
     }
   },
   created () {
