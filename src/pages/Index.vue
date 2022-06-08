@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <q-card class="basket" :style=" totalprice > 1000 ? 'height: 840px;' : 'height: 799px;' ">
+    <q-card class="basket" :style=" totalprice > 1000 ? 'height: 840px;' : 'height: 840px;' ">
       <span class="basket-content">
         <q-text style="font-weight: 700">Meu carrinho</q-text>
       </span>
@@ -244,6 +244,14 @@ export default {
 }
 
 @media only screen and (max-width: 425px) {
+  .content {
+    &--button {
+      width: 92%;
+      height: 40px;
+      background: rgb(22, 77, 180);
+      color: white;
+    }
+  }
   .basket {
     padding: 0px 1px 0 1px;
     width: 100%;
